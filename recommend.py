@@ -39,3 +39,23 @@ def recommend_songs(catalog, liked_songs, play_counts, top_n=5):
         reverse=True,
     )
     return ranked[:top_n]
+
+
+if __name__ == "__main__":
+    catalog = [
+        {"id": "s1", "title": "Neon Nights", "artist": "Aria Vale", "popularity": 40},
+        {"id": "s2", "title": "Slow Tide", "artist": "Aria Vale", "popularity": 55},
+        {"id": "s3", "title": "Concrete Sky", "artist": "The Driftwood", "popularity": 90},
+        {"id": "s4", "title": "Paper Planes Redux", "artist": "Mono Static", "popularity": 20},
+    ]
+    liked_songs = [{"id": "s2", "artist": "Aria Vale"}]
+    play_counts = {"s2": 4, "s3": 1}
+
+    print("SOUNDWAVE RECOMMENDATION DEMO")
+    print("Liked songs:", [s["id"] for s in liked_songs])
+    print("Play counts:", play_counts)
+
+    top_picks = recommend_songs(catalog, liked_songs, play_counts, top_n=3)
+    print("Recommended for You:")
+    for song in top_picks:
+        print(" -", song["title"], "by", song["artist"])
