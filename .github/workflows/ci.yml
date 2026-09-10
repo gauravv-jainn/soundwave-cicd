@@ -29,3 +29,6 @@ jobs:
 
       - name: Run tests
         run: pytest -v
+
+      - name: Run SoundWave recommendation demo
+        run: python recommend.py
